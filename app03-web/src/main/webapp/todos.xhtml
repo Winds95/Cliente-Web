@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<link rel="stylesheet"
+		href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+		crossorigin="anonymous" />
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+</h:head>
+
+<h:body>
+	<div class="container">
+		<h:form prependId="false">
+			<h2>ToDos</h2>
+
+			<h:dataTable value="#{todoAction.todos}" var="item"
+				styleClass="table table-sm table-striped table-hover">
+				<h:column>
+					<h:commandLink value="Detalle" action="#{todoAction.detalle(item)}" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						ID
+					</f:facet>
+					<h:outputText value="${item.id}" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						Name
+					</f:facet>
+					<h:outputText value="${item.name}" />
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">
+						Username
+					</f:facet>
+					<h:outputText value="${item.username}" />
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">
+						Email
+					</f:facet>
+					<h:outputText value="${item.email}" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						Phone
+					</f:facet>
+					<h:outputText value="${item.phone}" />
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">
+						Website
+					</f:facet>
+					<h:outputText value="${item.website}" />
+				</h:column>
+
+			</h:dataTable>
+			
+			<h:dataTable value="#{direccionAction.direcciones}" var="item"
+				styleClass="table table-sm table-striped table-hover">
+				<h:column>
+					<h:commandLink value="Detalle" action="#{direccionAction.detalle(item)}" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						STREET
+					</f:facet>
+					<h:outputText value="${item.street}" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						SUITE
+					</f:facet>
+					<h:outputText value="${item.suite}" />
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">
+						CITY
+					</f:facet>
+					<h:outputText value="${item.city}" />
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">
+						ZIPCODE
+					</f:facet>
+					<h:outputText value="${item.zipcode}" />
+				</h:column>
+
+			</h:dataTable>
+			
+			<h:dataTable value="#{geoAction.geos}" var="item"
+				styleClass="table table-sm table-striped table-hover">
+				<h:column>
+					<h:commandLink value="Detalle" action="#{geoAction.detalle(item)}" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						LATITUDE
+					</f:facet>
+					<h:outputText value="${item.latitude}" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						LONGITUDE
+					</f:facet>
+					<h:outputText value="${item.longitude}" />
+				</h:column>
+
+			</h:dataTable>
+			
+			<h:dataTable value="#{companyAction.companies}" var="item"
+				styleClass="table table-sm table-striped table-hover">
+				<h:column>
+					<h:commandLink value="Detalle" action="#{companyAction.detalle(item)}" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						COMPANY NAME
+					</f:facet>
+					<h:outputText value="${item.name}" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						CATCH PHRASE
+					</f:facet>
+					<h:outputText value="${item.catchPhrase}" />
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">
+						BS
+					</f:facet>
+					<h:outputText value="${item.bs}" />
+				</h:column>
+				
+			</h:dataTable>			
+
+			<h:commandButton action="index" value="Regresar"
+				styleClass="btn btn-primary" />
+
+		</h:form>
+	</div>
+</h:body>
+
+</html>
